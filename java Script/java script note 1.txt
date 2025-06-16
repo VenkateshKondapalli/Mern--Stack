@@ -1,0 +1,27 @@
+variable have the default value of undefined
+
+Var-                             let           const                    
+access before initialization     --            --
+re-declaration                   --            --
+re-assignment                  re-assignment   -- 
+
+
+
+
+------ opertors-----------
+
+   + - arithmetic addition
+it can do arithmetic addition  
+
+it  can concatenate the string 
+console.log(1+1); --  2 
+console.log('1'+1); -- 11
+console.log(1+'1'); -- 11
+console.log('1'+'1'); -- 11
+
+
+but for multiplication ,subtraction and for divison it is on applied for arithmetic not to concatenate it will return NaN(Not a Number)
+
+console.log(1-1);  console.log('a'-1);  console.log(1-'a');  console.log('1'-'a');
+console.log(1*1);  console.log('a'*1);  console.log(1*'a');  console.log('1'*'a');
+console.log(1/1);  console.log('a'/1);  console.log(1/'a');  console.log('1'/'a');
