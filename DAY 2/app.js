@@ -27,6 +27,7 @@ const calucalteBillAmountForDrinks= (price)=>{
 // generateBill(100,400,100);
 
 // ------------------------ higher order function
+// Call backs
 const printBillForFood =(txt)=>{
     console.log("total amount for food is",txt);
 };
