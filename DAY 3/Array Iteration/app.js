@@ -22,12 +22,13 @@ console.log("Array Iteration Methods");
 
 //4.
 
-
-// FOREACH 
-const arr=["cat","dog","elephant","tiger"];
+// FOREACH
+const arr = ["cat", "dog", "elephant", "tiger"];
 // const myFunc= ()=>{
 // console.log("hello");
 // }
 // arr.forEach(myFunc);
 //in forEach(we can write function in side the for each)
-arr.forEach(()=>{console.log("hello");})//short form
+arr.forEach(() => {
+  console.log("hello");
+}); //short form
