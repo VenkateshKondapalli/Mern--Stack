@@ -1063,14 +1063,19 @@ const parentElem = document.getElementsByTagName("main")[0];
 const { recipes } = data;
 
 recipes.forEach(({ name, image, cuisine, rating, servings }) => {
+  const popUpData = { name, image, cuisine, rating, servings };
   const newDiv = document.createElement("div");
   newDiv.className = "card";
   newDiv.innerHTML = `
         <p>${name}</p>
-        <img src='${image}abcd' width='200' height='200'>
+        <img src='${image}' width='200' height='200'>
         <p>${cuisine}</p>
         <p>${rating}</p>
         <p>${servings}</p>
+        <button onclick='handleCardClick(${JSON.stringify(
+          popUpData
+        )})'>Click Me</button>
+
     `;
 
   parentElem.appendChild(newDiv);
@@ -1078,11 +1083,14 @@ recipes.forEach(({ name, image, cuisine, rating, servings }) => {
 
 const popUpView = document.getElementById("pop-up-view");
 const newValue = document.getElementById("pop-up-conent");
-const handleCardClick = () => {
+const handleCardClick = (obj) => {
   // alert("clicked");
   popUpView.style.display = "flex";
   newValue.innerHTML = `
-  <p>venkatesh</p>
+  <p>${obj.name}</p>
+  <p>${obj.cuisine}</p>
+  <p>${obj.rating}</p>
+  <p>${obj.servings}</p>
   `;
 };
 

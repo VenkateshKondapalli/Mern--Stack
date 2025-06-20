@@ -1,4 +1,4 @@
-// //object store key value pair keys should be string or symbol 
+// //object store key value pair keys should be string or symbol
 // // CURD opertions(c=create, u=Update, r=read, d=delete)
 
 // // const cse022 ={
@@ -13,7 +13,7 @@
 // // //update the value of property
 // // cse022.bloodGroup= "A+";
 
-// // //add a key-value Pair 
+// // //add a key-value Pair
 // // cse022.collage= "LPU";
 // // console.log(cse022);
 
@@ -74,7 +74,7 @@
 //         weight: 60,
 //         collage: 'lpu',
 //         rollNo: 12215022,
-    
+
 // }
 
 // const person2=person1;
@@ -108,7 +108,6 @@
 // console.log("person2",person2);
 //there are two containers in js they are array and objects
 
-
 // ----------------------///Array///------------------------------
 // const arr1=['tata','mahindra','suzuki','hundai'];
 // const arr2=['kia','byd','audi'];
@@ -124,7 +123,7 @@
 // const [x,y,z]=arr
 // console.log(z,x,y);
 
-// -------------------- 
+// --------------------
 //ADD
 // const arr=['tata','mahindra','suzuki','hundai'];
 // arr[10]="honda"
@@ -135,11 +134,11 @@
 
 // console.log(arr);
 // const arr=['tata','mahindra','suzuki','hundai'];
-// console.log(arr); 
+// console.log(arr);
 // in splice in that first poistion is for the index and for second is to which index we need to delete later we will add that elements in that position
-// arr.splice(1,2,"kia","byd","honda"); if want to delete the element in one position and add different element in that position 
+// arr.splice(1,2,"kia","byd","honda"); if want to delete the element in one position and add different element in that position
 // arr.splice(1,1); -->remove one Elementin that position
-// arr.splice(1,0,"hero"); -->adding new Element in that position 
+// arr.splice(1,0,"hero"); -->adding new Element in that position
 
 // console.log(arr);
 
@@ -182,18 +181,17 @@
 
 //for find it will required for value but for maps it will required for storied element
 
-const arr=[
-    {name:"likhilesh", city:"delhi",score:35},
-    {name:"abhinav", city:"kanpur",score:24},
-    {name:"summet", city:"mumbai",score:42},
+const arr = [
+  { name: "likhilesh", city: "delhi", score: 35 },
+  { name: "abhinav", city: "kanpur", score: 24 },
+  { name: "summet", city: "mumbai", score: 42 },
 ];
-const myFunc=(elem)=>{
-    if(elem.score<25){
-        return {...elem , remark :"Fail"};
-    }else{
-        
-        return {...elem , remark :"Pass"};
-    }
-}
-const resArr= arr.map(myFunc);
-console.log("resArr: ",resArr);
+const myFunc = (elem) => {
+  if (elem.score < 25) {
+    return { ...elem, remark: "Fail" };
+  } else {
+    return { ...elem, remark: "Pass" };
+  }
+};
+const resArr = arr.map(myFunc);
+console.log("resArr: ", resArr);
