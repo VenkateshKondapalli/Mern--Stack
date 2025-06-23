@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #searchbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #search-suggestion,
+    p {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+  </style>
+
+  <body>
+    <header>
+      <div id="searchbar">
+        <div>
+          <input
+            type="text"
+            name="search-text"
+            onkeyup="handleSearchSuggestionSmart(event)"
+          />
+          <div id="search-suggestions"></div>
+        </div>
+        <button>Search</button>
+      </div>
+    </header>
+    <script src="./index.js"></script>
+  </body>
+</html>
