@@ -1,0 +1,24 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#cards-parent {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 350px);
+    gap: 1rem;
+}
+
+.trending-card {
+    background-color: rgba(240, 4, 4, 0.4);
+    border-radius: 0.25rem;
+}
+.trending-card:hover{
+    background-color: rgba(251, 4, 4, 0.75);;
+}
+
+.video-thumb-img {
+    width: 100%;
+}
