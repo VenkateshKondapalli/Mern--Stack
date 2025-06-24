@@ -1,5 +1,6 @@
 const renderSuggestions = (data) => {
   const { results } = data;
+  console.log(data);
   const rootElem = document.getElementById("search-suggestions");
   rootElem.innerText = "";
   results.forEach((txt) => {
@@ -35,6 +36,7 @@ const handleSearchSuggestions = (e) => {
       console.log(`Error in search autocomplete: ${err.message}`, err);
     });
 };
+
 
 let timeoutId = null;
 
