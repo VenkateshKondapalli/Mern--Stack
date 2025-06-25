@@ -1,0 +1,9 @@
+.searchBox{
+    padding: 2rem;
+    background-color: aqua;
+}
+.searchBox input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
