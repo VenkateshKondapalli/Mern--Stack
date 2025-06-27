@@ -1,53 +1,57 @@
 import { useState } from "react";
 const App = () => {
-  const [arr, setArr] = useState([]);
+  const [editIndex, setEditIndex] = useState(-1);
+  console.log(editIndex);
 
-  const handleName = (e) => {
-    e.preventDefault();
-    const name = e.target.name.value;
-    const city = e.target.city.value;
+  const [fruits, setFruits] = useState([
+    {
+      name: "kiwi",
+      color: "green",
+      price: 600,
+    },
+    {
+      name: "Banana",
+      color: "yellow",
+      price: 40,
+    },
+    {
+      name: "Apple",
+      color: "Red",
+      price: 200,
+    },
+    {
+      name: "Mango",
+      color: "Yellow",
+      price: 150,
+    },
+  ]);
 
-    setArr((prev) => {
-      const temp = [...prev];
-      temp.push({ name, city });
-      return temp;
-    });
-  };
-
-  const handleDelete = (idx) => {
-    setArr((prev) => {
-      const temp = [...prev];
-      temp.splice(idx, 1);
-      return temp;
-    });
-  };
   return (
     <div>
-      <form onSubmit={handleName}>
-        <label>Enter Name</label>
-        <input name="name" type="text" placeholder="name" />
-        <br />
-        <label>Enter city </label>
-        <input type="text" placeholder="city" name="city" />
-        <br></br>
-        <input type="submit" value="add" />
-      </form>
-
-      {arr.map((elem, idx) => {
+      <h1>Title</h1>
+      {fruits.map((elem, idx) => {
         return (
-          <div key={idx}>
+            if(editIndex==idx){
+                <div>
+                <h1>Hello</h1>
+                </div>
+            }else{
+                <div key={idx} style={{ backgroundColor: elem.color }}>
             <h3>{elem.name}</h3>
-            <h3>{elem.city}</h3>
+            <h4>{elem.color}</h4>
+            <h3>{elem.price}</h3>
             <button
               onClick={() => {
-                handleDelete(idx);
+                setEditIndex(idx);
               }}
             >
-              delete
+              Edit
             </button>
           </div>
+            }
+      
         );
-      })}
+        })}
     </div>
   );
 };
