@@ -118,25 +118,35 @@ const App = () => {
     .toString()
     .padStart(2, "0");
   return (
-    <div>
-      <h2>
+    <div className="stopWatch-container">
+      <h2 className="time-display">
         {hrs}:{min}:{sec}
       </h2>
       {isTimerRunning ? (
-        <button onClick={handlePause}>Pause</button>
+        <button className="watch-btn" onClick={handlePause}>
+          Pause
+        </button>
       ) : (
-        <button onClick={handleResume}>Play</button>
+        <button className="watch-btn" onClick={handleResume}>
+          Play
+        </button>
       )}
-      <button onClick={handleReset}>Reset</button>
-      <button onClick={handleLap}>Lap</button>
+      <button className="watch-btn" onClick={handleReset}>
+        Reset
+      </button>
+      <button className="watch-btn" onClick={handleLap}>
+        Lap
+      </button>
 
-      {lap.map((elem, idx) => {
-        return (
-          <p key={idx}>
-            {elem.hour}:{elem.min}:{elem.sec}
-          </p>
-        );
-      })}
+      <div className="lap-box">
+        {lap.map((elem, idx) => {
+          return (
+            <p key={idx} className="lap-item">
+              {elem.hour}:{elem.min}:{elem.sec}
+            </p>
+          );
+        })}
+      </div>
     </div>
   );
 };

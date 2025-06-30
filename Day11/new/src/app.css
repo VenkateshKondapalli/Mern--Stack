@@ -1,24 +1,59 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+  background-color:#f0f4f8;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
 }
-p{
-    background-color: burlywood;
-    color: darkorange;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+.stopWatch-container {
+  background-color: white;
+  padding: 50px;
+  margin-top: 60px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
 }
-button{
-    background-color:snow;
-    color:chocolate;
-    border-radius: 15px ;
-    border-color: chocolate;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    gap: 10px;
+
+.stopWatch-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  color: #000000;
+}
+
+/* Button styles */
+.stopWatch-container button {
+  padding: 10px 16px;
+  margin: 5px;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.stopWatch-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Lap container */
+.lap-box {
+  background-color: #fff;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 300px;
+}
+
+.lap-box p {
+  margin: 6px 0;
+  font-weight: 500;
+  font-family: monospace;
+  color: #444;
 }
