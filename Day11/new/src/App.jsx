@@ -57,6 +57,7 @@
 // export default App;
 
 import { useEffect, useState } from "react";
+import "./app.css";
 
 const App = () => {
   const [timeInSec, setTimeInSec] = useState(0); // if we want to store and render we use use State
@@ -97,7 +98,7 @@ const App = () => {
   const handleLap = () => {
     setLaps((prev) => {
       const temp = [...prev];
-      temp.push(timeInSec);
+      temp.push({ sec: sec, min: min, hour: hrs });
       return temp;
     });
   };
@@ -130,7 +131,11 @@ const App = () => {
       <button onClick={handleLap}>Lap</button>
 
       {lap.map((elem, idx) => {
-        return <p key={idx}>{elem}</p>;
+        return (
+          <p key={idx}>
+            {elem.hour}:{elem.min}:{elem.sec}
+          </p>
+        );
       })}
     </div>
   );
