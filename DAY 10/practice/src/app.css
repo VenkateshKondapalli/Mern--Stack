@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.filters-container{
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background-color: lightgoldenrodyellow;
+  justify-content: center;
+}
+
+button{
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  background-color: blueviolet;
+  color: beige;
+  border: 1px solid darkred;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+#cards-container{
+  background-color: lightcyan;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-rows: auto;
+  gap: 1rem;
+  padding: 1rem 1rem 2rem;
+}
+
+.product-card{
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background-color: rgba(255, 255, 0, 0.5);
+  border: 1px solid lightgrey;
+  text-align: center;
+}
+
+.product-card p{
+  margin-top: 0.5rem;
+}
