@@ -5,7 +5,7 @@ const Header = (props) => {
   const navigate = useNavigate(); // hook :: special function ::  given react-router
 
   const handleSearch = () => {
-    navigate("/search");
+    navigate(`/search/?text=${text}`);
   };
 
   return (

@@ -27,7 +27,12 @@ const App = () => {
             <SearchPage text={text} handleSearchText={handleSearchText} />
           }
         />
-        <Route path="/:productId/view" element={<ViewPage />} />
+        <Route
+          path="/:productId/view"
+          text={text}
+          handleSearchText={handleSearchText}
+          element={<ViewPage />}
+        />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
