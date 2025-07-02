@@ -3,10 +3,12 @@ import { Footer } from "../components/Footer";
 import { CategoryList } from "../components/CategoryList";
 
 const HomePage = (props) => {
-  const { text, handleSerachText } = props;
+  // console.log("🟡 : obj:", props);
+  const { text, handleSearchText } = props;
+
   return (
     <div>
-      <Header text={text} handleSerachText={handleSerachText} />
+      <Header text={text} handleSearchText={handleSearchText} />
       <main className="p-8">
         <div>
           <CategoryList />

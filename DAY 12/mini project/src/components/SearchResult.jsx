@@ -1,21 +1,39 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { ProductResultCard } from "./ProductResultCard";
 
 const SearchResult = (props) => {
-  const { text } = props;
+  const [results, setResults] = useState([]);
+  const { searchQuery } = props; // a
 
   const getSearchResults = async () => {
     const response = await fetch(
-      "https://dummyjson.com/products/search?q=phone"
+      `https://dummyjson.com/products/search?q=${searchQuery}`
     );
     const data = await response.json();
-    console.log(data);
+    setResults(data.products);
   };
+
   useEffect(() => {
     getSearchResults();
-  }, [text]);
+  }, [searchQuery]); // dependency array: initial render only
+
   return (
     <div>
-      <h2>{text}</h2>
+      <h2>{searchQuery}</h2>
+      <div className="flex flex-col gap-6">
+        {results.map((elem) => {
+          // return <ProductResultCard key={elem.id} {...elem} />;
+          return (
+            <ProductResultCard
+              key={elem.id} // help react to identify each card uniquely
+              title={elem.title}
+              price={elem.price}
+              rating={elem.rating}
+              thumbnail={elem.thumbnail}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

@@ -6,21 +6,25 @@ import { NotFoundPage } from "./pages/PageNotFound";
 import { useState } from "react";
 
 const App = () => {
-  const [text, setText] = useState("");
-  const handleSerachText = (newval) => {
-    setText(newval);
+  const [text, setText] = useState(""); // a
+
+  const handleSearchText = (newVal) => {
+    setText(newVal); // noted! --> a
   };
+
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path="/"
-          element={<HomePage text={text} handleSerachText={handleSerachText} />}
+          element={
+            <HomePage text={text} handleSearchText={handleSearchText} x="y" />
+          }
         />
         <Route
           path="/search"
           element={
-            <SearchPage text={text} handleSerachText={handleSerachText} />
+            <SearchPage text={text} handleSearchText={handleSearchText} />
           }
         />
         <Route path="/view" element={<ViewPage />} />
