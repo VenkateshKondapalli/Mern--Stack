@@ -1,17 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 import { HomePage } from "./pages/HomePage";
-import { SearchPage } from "./pages/SeacrchPage";
 import { ViewPage } from "./pages/ViewPage";
-import { NotFoundPage } from "./pages/PageNotFound";
+import { SearchPage } from "./pages/SearchPage";
+import { PageNotFound } from "./pages/PageNotFound";
 import { useState } from "react";
-
 const App = () => {
-  const [text, setText] = useState(""); // a
-
+  const [text, setText] = useState("");
   const handleSearchText = (newVal) => {
-    setText(newVal); // noted! --> a
+    setText(newVal);
   };
-
   return (
     <BrowserRouter>
       <Routes>
@@ -25,14 +22,10 @@ const App = () => {
             <SearchPage text={text} handleSearchText={handleSearchText} />
           }
         />
-        <Route
-          path="/:productId/view"
-          element={<ViewPage text={text} handleSearchText={handleSearchText} />}
-        />
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/view" element={<ViewPage />} />
+        <Route path="/*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   );
 };
-
 export default App;
