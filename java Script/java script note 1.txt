@@ -25,3 +25,33 @@ but for multiplication ,subtraction and for divison it is on applied for arithme
 console.log(1-1);  console.log('a'-1);  console.log(1-'a');  console.log('1'-'a');
 console.log(1*1);  console.log('a'*1);  console.log(1*'a');  console.log('1'*'a');
 console.log(1/1);  console.log('a'/1);  console.log(1/'a');  console.log('1'/'a');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+React Project Basic remainings:
+
+App,VIEWPAGE :click on the product and product should be showen
+homepage:done
+footer:done for now 
+header: done
+searchpage: done
+viewpage:not done need to do more for it and also add the product result to it
+searchResult: we need to work on debouncing and also add pages for it 
+category :done
+product result: done 
+
+---------------------------------
+later work we need to make the buttons work on homepage (categorylist)
+add filter for search

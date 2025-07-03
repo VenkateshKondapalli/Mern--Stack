@@ -20,11 +20,15 @@ const SearchPage = (props) => {
       prev.set("text", text);
       return prev;
     });
-  }, [text, searchParams]);
+  }, [text]);
   return (
     <div>
       <Header text={text} handleSearchText={handleSearchText} />
       <main>
+        <p>
+          Search results for:
+          <span className="text-red-800 font-bold">{text}</span>
+        </p>
         <SearchResultPage text={text} />
       </main>
       <Footer />
