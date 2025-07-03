@@ -4,6 +4,7 @@ import { ViewPage } from "./pages/ViewPage";
 import { SearchPage } from "./pages/SearchPage";
 import { PageNotFound } from "./pages/PageNotFound";
 import { useState } from "react";
+import CategoryProducts from "./components/CategoryProducts";
 const App = () => {
   const [text, setText] = useState("");
   const handleSearchText = (newVal) => {
@@ -22,7 +23,13 @@ const App = () => {
             <SearchPage text={text} handleSearchText={handleSearchText} />
           }
         />
-        <Route path="/view" element={<ViewPage />} />
+        <Route
+          path="/:productId/view"
+          element={<ViewPage text={text} handleSearchText={handleSearchText} />}
+        />
+
+        <Route path="/category/:name" element={<CategoryProducts />} />
+
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>

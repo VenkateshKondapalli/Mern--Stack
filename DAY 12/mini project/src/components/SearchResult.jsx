@@ -7,11 +7,11 @@ const SearchResult = (props) => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   console.log("🟡 : page:", page);
-  const { searchQuery } = props; // a
+  const { text } = props; // a
 
   const getSearchResults = async () => {
     const response = await fetch(
-      `https://dummyjson.com/products/search?q=${searchQuery}&skip=${
+      `https://dummyjson.com/products/search?q=${text}&skip=${
         LIMIT * (page - 1)
       }&limit=${LIMIT}`
     );
@@ -32,17 +32,17 @@ const SearchResult = (props) => {
       console.log("---cleaning-up useEffect----");
       clearTimeout(timeoutId);
     };
-  }, [page, searchQuery]); // dependency array: initial render only
+  }, [page, text]); // dependency array: initial render only
 
   useEffect(() => {
     setPage(1);
-  }, [searchQuery]);
+  }, [text]);
 
   const dummyArray = new Array(totalPages).fill("hello");
 
   return (
     <div>
-      <h2>{searchQuery}</h2>
+      <h2>{text}</h2>
       <div className="flex flex-col gap-6">
         {results.map((elem) => {
           return (
