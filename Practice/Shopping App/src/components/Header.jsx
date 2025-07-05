@@ -8,10 +8,14 @@ const Header = (props) => {
   const handleSearch = () => {
     navigator(`/search/?text=${text}`);
   };
-
+  const handleHome = () => {
+    navigator(`/`);
+  };
   return (
     <header className="flex items-center justify-between bg-blue-100 p-4 shadow-md">
-      <p className="text-blue-900 font-bold text-xl">Shopping App</p>
+      <p className="text-blue-900 font-bold text-xl" onClick={handleHome}>
+        Shopping App
+      </p>
 
       <div className="flex items-center gap-3 flex-1 justify-center">
         <input

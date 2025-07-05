@@ -6,7 +6,7 @@ const HomePage = (props) => {
   const { text, handleSearchText } = props;
   // console.log("🟡 : obj:", props);
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <Header text={text} handleSearchText={handleSearchText} />
       <main>
         <CategoryList />

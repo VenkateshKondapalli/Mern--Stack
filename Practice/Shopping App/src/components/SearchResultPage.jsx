@@ -8,12 +8,14 @@ const SearchResultPage = (props) => {
   const [pages, setPages] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const { text } = props;
-
+  const [order, setOrder] = useState("asc");
+  console.log(result);
+  console.log(order);
   const getData = async () => {
     const response = await fetch(
       `https://dummyjson.com/products/search?q=${text}&skip=${
         LIMIT * (pages - 1)
-      }&limit=${LIMIT}`
+      }&limit=${LIMIT}&sortBy=title&order=${order}`
     );
     const data = await response.json();
     setResults(data.products);
@@ -23,7 +25,7 @@ const SearchResultPage = (props) => {
   useEffect(() => {
     const timeoutId = setTimeout(getData, 400);
     return () => clearTimeout(timeoutId);
-  }, [text, pages]); // Debounce fetching
+  }, [text, pages, order]); // Debounce fetching
 
   const handlePages = (idx) => {
     const clampedPage = Math.max(1, Math.min(idx, totalPages));
@@ -32,6 +34,25 @@ const SearchResultPage = (props) => {
 
   return (
     <div>
+      <div className="mb-4 flex items-center gap-4">
+        <h2 className="text-lg font-semibold">Sort Order:</h2>
+        <button
+          onClick={() => setOrder("asc")}
+          className={`px-3 py-1 rounded ${
+            order === "asc" ? "bg-blue-600 text-white" : "bg-gray-200"
+          }`}
+        >
+          Asc
+        </button>
+        <button
+          onClick={() => setOrder("desc")}
+          className={`px-3 py-1 rounded ${
+            order === "desc" ? "bg-blue-600 text-white" : "bg-gray-200"
+          }`}
+        >
+          Desc
+        </button>
+      </div>
       {/* Product Cards Grid */}
       <div className="p-6 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {result.map((elem) => (
