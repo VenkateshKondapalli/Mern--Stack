@@ -92,13 +92,31 @@ const editObjectFromArrayFromFile = async (
 };
 
 // difficult (***)
-const deleteObjectFromArrayFromFile = async (idx, filePath) => {
+const deleteObjectFromArrayFromFile = async (id, filePath) => {
   // read the file
   // try to convert it into JS object using JSON.parse()
   // if there is any error --> file is empty
   //                       --> show the error in the console ---> object does not exists
   // if it is able to parse --> delete the object from the array
   //                        --> ::save the new array to the file::
+  try {
+    const arr = await getAllDataFromArrayFromFile(filePath);
+    const idx = arr.findIndex((elem) => elem.id === id);
+
+    if (idx === -1) {
+      console.error("Invalid id. No object found with given id");
+      return arr;
+    }
+
+    const currentArr = [...arr];
+    currentArr.splice(idx, 1);
+    await saveArrayToFile(currentArr, filePath);
+
+    return currentArr;
+  } catch (error) {
+    console.error("Failed to delete object from file:", error);
+    return null;
+  }
 };
 
 module.exports = {
