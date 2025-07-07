@@ -1,0 +1,11 @@
+orm-object relation model ==> it will make the mongodb easy
+odm-object data model
+
+
+
+mongodb stores the data in Bson-(it binary json it store json and data type)
+
+schema is the how our data should be and its critera and all just like the main product blueprint 
+
+model  (first is  Name,second  is Schema)(name of the collection keep it singular but mongodb  will make itself make it plural,Schema)
+
