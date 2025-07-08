@@ -8,6 +8,7 @@ require("./config/db.js");
 
 const dotEnv = require("dotenv");
 dotEnv.config();
+
 app.get("/", (req, res) => {
   res.status(200);
   res.json({
