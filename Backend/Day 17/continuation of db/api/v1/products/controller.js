@@ -61,27 +61,38 @@ const getAllProducts = async (req, res) => {
 
 const updateProductControllers = async (req, res) => {
   try {
-    const { productId } = req.params;
     const newData = req.body;
-    const newProduct = await Product.findByIdAndUpdate(productId, newData, {
-      new: true,
-      runValidators: true,
-    });
-    res.json({
-      isSuccess: true,
-      message: "Products updated",
-      data: {
-        products: newProduct,
-      },
-    });
-    if (productId === null) {
+
+    const { productId } = req.params;
+    if (!productId) {
       res.status(400);
-      res.json({
-        isSuccess: true,
+      return res.json({
+        isSuccess: false,
         message: "Invalid productId",
         data: {},
       });
     }
+
+    const updatedProduct = await Product.findByIdAndUpdate(productId, newData, {
+      new: true,
+      runValidators: true,
+    });
+    if (!updatedProduct) {
+      res.status(404);
+      return res.json({
+        isSuccess: false,
+        message: "Product not Found",
+        data: {},
+      });
+    }
+
+    res.json({
+      isSuccess: true,
+      message: "Products updated",
+      data: {
+        products: updatedProduct,
+      },
+    });
   } catch (err) {
     console.log(err.message);
     res.status(500);
@@ -96,7 +107,25 @@ const updateProductControllers = async (req, res) => {
 const deleteProductControllers = async (req, res) => {
   try {
     const { productId } = req.params;
+    if (!productId) {
+      res.status(400);
+      return res.json({
+        isSuccess: false,
+        message: "Invalid productId",
+        data: {},
+      });
+    }
+
     const newProduct = await Product.findByIdAndDelete(productId);
+    if (!newProduct) {
+      res.status(404);
+      return res.json({
+        isSuccess: false,
+        message: "Product not Found",
+        data: {},
+      });
+    }
+
     res.status(204);
     res.json({
       issSuccess: true,

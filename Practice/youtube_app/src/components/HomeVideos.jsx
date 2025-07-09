@@ -2,8 +2,7 @@ import { useEffect } from "react";
 
 const HomeVideos = () => {
   const getData = async () => {
-    const url =
-      "https://youtube138.p.rapidapi.com/auto-complete/?q=desp&hl=en&gl=US";
+    const url = "https://youtube138.p.rapidapi.com/home/?hl=en&gl=US";
     const options = {
       method: "GET",
       headers: {
