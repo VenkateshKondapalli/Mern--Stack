@@ -6,7 +6,7 @@ const productSchema = new Schema(
   {
     title: {
       type: String,
-      require: true,
+      required: true,
       trim: true,
       unique: true,
     },
@@ -19,7 +19,7 @@ const productSchema = new Schema(
     price: {
       type: Number,
       min: 0,
-      require: true,
+      required: true,
     },
     quantity: {
       type: Number,
